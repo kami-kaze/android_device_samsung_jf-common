@@ -265,8 +265,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.repeatable_keys=114,115
 
 # ril
-#PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=SamsungQualcommRIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=jflteRIL
 
 # wifi
 PRODUCT_PROPERTY_OVERRIDES += \
