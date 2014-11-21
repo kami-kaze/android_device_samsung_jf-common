@@ -154,7 +154,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libnfc-nci \
     libnfc_nci_jni \
-    nfc_nci.pn54x.default \
+    nfc_nci.bcm2079x.default \
     NfcNci \
     Tag \
     com.android.nfc_extras
