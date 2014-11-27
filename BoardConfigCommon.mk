@@ -140,14 +140,6 @@ TARGET_RECOVERY_FSTAB := device/samsung/jf-common/rootdir/etc/fstab.qcom
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/jf-common/releasetools
 
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/jf-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    init.te \
-    mm-pp-daemon.te
-
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
 
