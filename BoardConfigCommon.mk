@@ -141,14 +141,6 @@ TARGET_RECOVERY_FSTAB := device/samsung/jf-common/rootdir/etc/fstab.qcom
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/jf-common/releasetools
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += device/samsung/jf-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    file_contexts \
-    insthk.te
-
-# SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += device/samsung/jf-common/sepolicy
 
