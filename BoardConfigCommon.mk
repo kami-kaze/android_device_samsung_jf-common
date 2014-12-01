@@ -146,9 +146,7 @@ BOARD_SEPOLICY_DIRS += device/samsung/jf-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     file_contexts \
-    insthk.te \
-    kickstart.te \
-    qrngd.te
+    insthk.te
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
