@@ -77,8 +77,11 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # AntaresOne Updater
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     AntaresOneUpdater
+# Temporarily use prebuilt one
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/AntaresOneUpdater/AntaresOneUpdater.apk:system/priv-app/AntaresOneUpdater/AntaresOneUpdater.apk
     
 # Audio
 PRODUCT_PACKAGES += \
