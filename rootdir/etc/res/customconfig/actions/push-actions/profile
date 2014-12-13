@@ -1,5 +1,0 @@
-#!/sbin/busybox sh
-
-PROFILE=`cat /data/.alucard/.active.profile`;
-
-echo "your profile: \"$PROFILE\"";

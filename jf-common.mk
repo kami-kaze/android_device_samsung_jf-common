@@ -207,25 +207,14 @@ PRODUCT_PACKAGES += \
     check_fs.sh \
     init.carrier.rc \
     init.crda.sh \
-    init.qcom.class_core.sh \
-    init.qcom.class_main.sh \
-    init.qcom.early_boot.sh \
-    init.qcom.lpm_boot.sh \
-    init.qcom.post_boot.sh \
     init.qcom.rc \
-    init.qcom.sh \
-    init.qcom.syspart_fixup.sh \
     init.qcom.usb.rc \
-    init.qcom.usb.sh \
     init.target.rc \
     ueventd.qcom.rc
     
-# Copy stuff into ramdisk
-$(shell mkdir -p out/target/product/jflte/root)
-$(shell cp --recursive $(LOCAL_PATH)/rootdir/etc/sbin out/target/product/jflte/root)
-$(shell cp --recursive $(LOCAL_PATH)/rootdir/etc/res out/target/product/jflte/root/etc)
-
-# Symlink blkid
+# Copy busybox into ramdisk and symlink to blkid
+$(shell mkdir -p out/target/product/jflte/root/sbin)
+$(shell cp $(LOCAL_PATH)/rootdir/etc/sbin/busybox out/target/product/jflte/root/sbin/busybox)
 $(shell cd out/target/product/jflte/root/sbin && ln -s busybox blkid)
 
 # Thermal
