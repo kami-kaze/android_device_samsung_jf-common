@@ -83,6 +83,10 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/AntaresOneUpdater/AntaresOneUpdater.apk:system/priv-app/AntaresOneUpdater/AntaresOneUpdater.apk
     
+# AntaresOne's softkeys manager
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/softkeys/softkeys:system/bin/softkeys
+    
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \

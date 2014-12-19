@@ -1,0 +1,109 @@
+#!/system/bin/sh
+# Copyright (c) 2014, AntaresOne. All rights reserved.
+#
+# http://forum.xda-developers.com/member.php?u=5464206
+#
+# Export init.d path
+export INITD=/system/etc/init.d
+# Export leds path
+export LEDPATH=/sys/class/leds/button-backlight/max_brightness
+# Export leds value
+export LIGHTS=`cat $LEDPATH`
+# Export keylayout path
+export KL=/system/usr/keylayout
+# Remount system as rw
+mount -o remount,rw /system
+echo "*********************************"
+echo "* AntaresOne's softkeys manager *"
+echo "*********************************"
+echo
+echo "Choose an option:"
+echo
+echo "1 - Enable or disable lights"
+echo "2 - Enable or disable haptic feedback"
+echo
+echo "Type 1 or 2 and press enter:"
+read OPTION
+if [ "$OPTION" == "1" ]; then
+	echo
+	echo "Checking..."
+	echo
+	if [ "$LIGHTS" == "255" ]; then
+		echo "Lights are enabled!"
+		echo
+		echo "Disabling..."
+		echo 0 > $LEDPATH
+		echo
+		echo "Adding boot script..."
+		echo $'#!/system/bin/sh\n# Script to disable softkeys leds on boot\n# Made by AntaresOne softkeys manager\n#\necho 0 > /sys/class/leds/button-backlight/max_brightness' > $INITD/90leds
+		chmod 0755 $INITD/90leds
+		echo
+		echo "Lights disabled!"
+		sleep 1
+		exit 0
+	elif [ "$LIGHTS" == "0" ]; then
+		echo "Lights are disabled!"
+		echo
+		echo "Enabling..."
+		echo 255 > $LEDPATH
+		rm $INITD/90leds
+		echo
+		echo "Lights enabled!"
+		sleep 1
+		exit 0
+	fi
+elif [ "$OPTION" == "2" ]; then
+	echo
+	echo "Checking..."
+	export HAPTIC=`cat $KL/sec_touchkey.kl | grep "VIRTUAL"`
+	echo
+	if [ "$HAPTIC" == "VIRTUAL" ]; then
+		echo "Haptic feedback is enabled!"
+		echo
+		echo "Disabling..."
+		rm $KL/sec_touchkey.kl 
+		echo $'key 139 MENU\nkey 158 BACK\nkey 102 HOME\nkey 217 SEARCH' > $KL/sec_touchkey.kl
+		chmod 0644 $KL/sec_touchkey.kl
+		echo
+		echo "Haptic feedback disabled!"
+		echo
+		echo "Reboot needed, do you want to reboot now?"
+		echo
+		echo "1 - Yes"
+		echo "2 - No"
+		read REBOOT
+		if [ "$REBOOT" == "1" ]; then
+			echo "Rebooting device..."
+			reboot system
+		elif [ "$REBOOT" == "2" ]; then
+			echo "Skipping reboot..."
+			echo
+			sleep 1
+			exit 0
+		fi
+	else
+		echo "Haptic feedback is disabled!"
+		echo
+		echo "Enabling..."
+		rm $KL/sec_touchkey.kl
+		echo $'key 139 MENU VIRTUAL\nkey 158 BACK VIRTUAL\nkey102 HOME\nkey 217 SEARCH' > $KL/sec_touchkey.kl
+		chmod 0644 $KL/sec_touchkey.kl
+		echo
+		echo "Haptic feedback enabled!"
+		echo
+		echo "Reboot needed, do you want to reboot now?"
+		echo
+		echo "1 - Yes"
+		echo "2 - No"
+		read REBOOT
+		if [ "$REBOOT" == "1" ]; then
+			echo "Rebooting device..."
+			reboot system
+		elif [ "$REBOOT" == "2" ]; then
+			echo "Skipping reboot..."
+			echo
+			sleep 1
+			exit 0
+		fi
+	fi
+fi
