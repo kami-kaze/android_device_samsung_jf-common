@@ -72,15 +72,12 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-hwui-memory.mk)
 
 # AntaresOne Updater
-#PRODUCT_PACKAGES += \
-    AntaresOneUpdater
-# Temporarily use prebuilt one
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/AntaresOneUpdater/AntaresOneUpdater.apk:system/priv-app/AntaresOneUpdater/AntaresOneUpdater.apk
     
 # AntaresOne's softkeys manager
@@ -207,8 +204,6 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    fstab.tmp \
-    check_fs.sh \
     init.carrier.rc \
     init.crda.sh \
     init.qcom.rc \
@@ -217,9 +212,9 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
     
 # Copy busybox into ramdisk and symlink to blkid
-$(shell mkdir -p out/target/product/jflte/root/sbin)
-$(shell cp $(LOCAL_PATH)/rootdir/etc/sbin/busybox out/target/product/jflte/root/sbin/busybox)
-$(shell cd out/target/product/jflte/root/sbin && ln -s busybox blkid)
+#$(shell mkdir -p out/target/product/jflte/root/sbin)
+#$(shell cp $(LOCAL_PATH)/rootdir/etc/sbin/busybox out/target/product/jflte/root/sbin/busybox)
+#$(shell cd out/target/product/jflte/root/sbin && ln -s busybox blkid)
 
 # Thermal
 PRODUCT_COPY_FILES += \
@@ -228,7 +223,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8064ab.conf:system/etc/thermal-engine-8064ab.conf
 
 # Torch
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     Torch
 
 # USB

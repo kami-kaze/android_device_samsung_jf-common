@@ -38,9 +38,9 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 zcache msm_rtb.f
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_CONFIG := cyanogen_jf_defconfig
+TARGET_KERNEL_CONFIG := aosp_jf_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/jf
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.9.3
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.9.3
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -80,7 +80,7 @@ BOARD_CHARGING_CMDLINE_NAME := "androidboot.bootchg"
 BOARD_CHARGING_CMDLINE_VALUE := "true"
 
 # CMHW
-BOARD_HARDWARE_CLASS += device/samsung/jf-common/cmhw
+#BOARD_HARDWARE_CLASS += device/samsung/jf-common/cmhw
 
 # Display
 BOARD_EGL_CFG := device/samsung/jf-common/configs/egl.cfg
@@ -114,7 +114,7 @@ BOARD_NFC_CHIPSET := pn544
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
+#TARGET_USERIMAGES_USE_F2FS := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
 #BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00A00000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1572864000
