@@ -206,6 +206,8 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
+    busybox \
+    blkid \
     fstab.qcom \
     fstab.tmp \
     check_fs.sh \
@@ -215,11 +217,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.target.rc \
     ueventd.qcom.rc
-    
-# Copy busybox into ramdisk and symlink to blkid
-$(shell mkdir -p out/target/product/jflte/root/sbin)
-$(shell cp $(LOCAL_PATH)/rootdir/etc/sbin/busybox out/target/product/jflte/root/sbin/busybox)
-$(shell cd out/target/product/jflte/root/sbin && ln -s busybox blkid)
 
 # Thermal
 PRODUCT_COPY_FILES += \
