@@ -43,7 +43,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/jf
 # TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.9.3
 
 # ANT+
-BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
+#BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Audio
 BOARD_HAVE_AUDIENCE_ES325_2MIC := true
