@@ -80,7 +80,7 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 #PRODUCT_PACKAGES += \
     AntaresOneUpdater
 # Temporarily use prebuilt one
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/AntaresOneUpdater/AntaresOneUpdater.apk:system/priv-app/AntaresOneUpdater/AntaresOneUpdater.apk
     
 # AntaresOne's softkeys manager
