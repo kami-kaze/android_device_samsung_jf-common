@@ -1,7 +1,0 @@
-Copyright (c) 2014, AntaresOne. All rights reserved.
-
-http://forum.xda-developers.com/member.php?u=5464206
-
-Softkeys manager is a shell script to enable or disable leds/haptic feedback of back & menu softkeys.
-Can be launched from terminal and features user-choice options plus the ability to automatically recognize if leds (or haptic feedback if option 2 is choosen) are on or off.
-All that you must do is to choose option 1 or 2, the magic is automatically done.
