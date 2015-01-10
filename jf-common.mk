@@ -202,9 +202,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     busybox \
     blkid \
+    fscheck.sh \
     fstab.qcom \
     fstab.tmp \
-    check_fs.sh \
     init.carrier.rc \
     init.crda.sh \
     init.qcom.rc \

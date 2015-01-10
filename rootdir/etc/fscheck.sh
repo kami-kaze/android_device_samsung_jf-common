@@ -1,16 +1,16 @@
-#!/sbin/busybox sh
+#!/sbin/ext/busybox sh
 # Script to check filesystem type and modify mount points with proper options.
 #
 
-BB=/sbin/busybox
+BB=/sbin/ext/busybox
 
 $BB mount -o remount,rw /;
 
 $BB mv /fstab.qcom /fstab.org;
 
-FS_CACHE0=$(eval $(/sbin/blkid /dev/block/mmcblk0p18 | /sbin/busybox cut -c 24-); /sbin/busybox echo $TYPE);
-FS_DATA0=$(eval $(/sbin/blkid /dev/block/mmcblk0p29 | /sbin/busybox cut -c 24-); /sbin/busybox echo $TYPE);
-FS_SYSTEM0=$(eval $(/sbin/blkid /dev/block/mmcblk0p16 | /sbin/busybox cut -c 24-); /sbin/busybox echo $TYPE);
+FS_CACHE0=$(eval $(/sbin/ext/blkid /dev/block/mmcblk0p18 | /sbin/ext/busybox cut -c 24-); /sbin/ext/busybox echo $TYPE);
+FS_DATA0=$(eval $(/sbin/ext/blkid /dev/block/mmcblk0p29 | /sbin/ext/busybox cut -c 24-); /sbin/ext/busybox echo $TYPE);
+FS_SYSTEM0=$(eval $(/sbin/ext/blkid /dev/block/mmcblk0p16 | /sbin/ext/busybox cut -c 24-); /sbin/ext/busybox echo $TYPE);
 
 if [ "$FS_SYSTEM0" == "ext4" ]; then
 	$BB sed -i "s/# EXT4SYS//g" /fstab.tmp;
