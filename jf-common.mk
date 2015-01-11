@@ -81,6 +81,10 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ota/ota.apk:system/priv-app/AntaresOneUpdater/AntaresOneUpdater.apk
     
+# STweaks
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/STweaks/STweaks.apk:system/priv-app/STweaks/STweaks.apk
+    
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
