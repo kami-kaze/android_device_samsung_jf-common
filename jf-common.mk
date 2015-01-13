@@ -204,11 +204,7 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    busybox \
-    blkid \
-    fscheck.sh \
     fstab.qcom \
-    fstab.tmp \
     init.carrier.rc \
     init.crda.sh \
     init.qcom.rc \
